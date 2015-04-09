@@ -83,6 +83,7 @@ module YUI #:nodoc:
     #   end
     #
     def compress(stream_or_string)
+      puts Time.now
       streamify(stream_or_string) do |stream|
         tempfile = Tempfile.new('yui_compress')
         tempfile.write stream.read
@@ -97,6 +98,8 @@ module YUI #:nodoc:
         ensure
           tempfile.close!
         end
+
+        puts Time.now
 
         if $?.exitstatus.zero?
           output

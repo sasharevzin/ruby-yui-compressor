@@ -83,7 +83,7 @@ module YUI #:nodoc:
     #   end
     #
     def compress(stream_or_string)
-      puts "#{Time.now}: #{command}"
+      
       streamify(stream_or_string) do |stream|
         tempfile = Tempfile.new('yui_compress')
         tempfile.write stream.read
@@ -91,6 +91,7 @@ module YUI #:nodoc:
         full_command = "%s %s" % [command, tempfile.path]
 
         begin
+          puts "#{Time.now}: #{full_command}"
           output = `#{full_command}`
         rescue Exception => e
           # windows shells tend to blow up here when the command fails

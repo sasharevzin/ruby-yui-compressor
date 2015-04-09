@@ -83,7 +83,7 @@ module YUI #:nodoc:
     #   end
     #
     def compress(stream_or_string)
-      puts Time.now
+      puts "#{Time.now}: #{command}"
       streamify(stream_or_string) do |stream|
         tempfile = Tempfile.new('yui_compress')
         tempfile.write stream.read

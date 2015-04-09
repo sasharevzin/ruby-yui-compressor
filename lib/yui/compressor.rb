@@ -91,7 +91,7 @@ module YUI #:nodoc:
         full_command = "%s %s" % [command, tempfile.path]
 
         begin
-          puts "#{Time.now}: #{full_command}"
+          puts "#{Time.now}: #{stream.read[0..1000]}"
           output = `#{full_command}`
         rescue Exception => e
           # windows shells tend to blow up here when the command fails
